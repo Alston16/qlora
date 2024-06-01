@@ -25,7 +25,6 @@ import argparse
 from transformers import (
     AutoTokenizer,
     AutoModelForCausalLM,
-    set_seed,
     Seq2SeqTrainer,
     BitsAndBytesConfig,
     LlamaTokenizer
@@ -703,7 +702,6 @@ def train():
 
     model.config.use_cache = False
     print('loaded model')
-    set_seed(args.seed)
 
     data_module = make_data_module(tokenizer=tokenizer, args=args)
     
